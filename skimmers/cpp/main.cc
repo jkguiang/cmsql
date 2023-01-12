@@ -29,7 +29,7 @@ int main()
 {
 
     // Open up the file and get the ROOT's TTree data
-    TFile* file = new TFile("/home/users/jguiang/public_html/dump/forNara/example_RunIISummer20UL18.root");
+    TFile* file = new TFile("example_RunIISummer20UL18.root");
     TTree* tree = (TTree*) file->Get("Events");
 
     //======================================================================
