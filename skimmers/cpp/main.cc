@@ -46,7 +46,6 @@ int main()
         // Turning off the status of the unused branches to not load them every time
         // This speed things up in terms of skimming however, it also means none of the other branches are copied
         tree->SetBranchStatus("*", false);
-
         tree->SetBranchStatus("nElectron*", true);
         tree->SetBranchStatus("nMuon*", true);
         tree->SetBranchStatus("nFatJet*", true);
@@ -70,38 +69,6 @@ int main()
         tree->SetBranchStatus("SubJet*", true);
         tree->SetBranchStatus("HLT_*", true);
         tree->SetBranchStatus("Pileup*", true);
-
-        // tree->SetBranchStatus("nElectron", true);
-        // tree->SetBranchStatus("Electron_pt", true);
-        // tree->SetBranchStatus("Electron_eta", true);
-        // tree->SetBranchStatus("Electron_phi", true);
-        // tree->SetBranchStatus("Electron_deltaEtaSC", true);
-        // tree->SetBranchStatus("Electron_dz", true);
-        // tree->SetBranchStatus("Electron_dxy", true);
-        // tree->SetBranchStatus("Electron_cutBased", true);
-        // // --- Muon columns
-        // tree->SetBranchStatus("nMuon", true);
-        // tree->SetBranchStatus("Muon_pt", true);
-        // tree->SetBranchStatus("Muon_eta", true);
-        // tree->SetBranchStatus("Muon_phi", true);
-        // tree->SetBranchStatus("Muon_tightId", true);
-        // tree->SetBranchStatus("Muon_pfRelIso04_all", true);
-        // // --- Jet columns
-        // tree->SetBranchStatus("nJet", true);
-        // tree->SetBranchStatus("Jet_pt", true);
-        // tree->SetBranchStatus("Jet_eta", true);
-        // tree->SetBranchStatus("Jet_phi", true);
-        // // --- FatJet columns
-        // tree->SetBranchStatus("nFatJet", true);
-        // tree->SetBranchStatus("FatJet_pt", true);
-        // tree->SetBranchStatus("FatJet_eta", true);
-        // tree->SetBranchStatus("FatJet_phi", true);
-        // tree->SetBranchStatus("FatJet_mass", true);
-        // tree->SetBranchStatus("FatJet_msoftdrop", true);
-        // tree->SetBranchStatus("FatJet_particleNetMD_Xbb", true);
-        // tree->SetBranchStatus("FatJet_particleNetMD_QCD", true);
-        // // --- MET columns
-        // tree->SetBranchStatus("MET_pt", true);
     }
 
     // TTree reading performance measurement tool
@@ -345,7 +312,7 @@ int main()
             continue;
 
         // Once we reach this point we fill the event to the output ttree if only if it reaches here
-        // otree->Fill();
+        otree->Fill();
 
     }
 
