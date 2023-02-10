@@ -29,7 +29,7 @@ int main()
 {
 
     // Open up the file and get the ROOT's TTree data
-    TFile* file = new TFile("example_RunIISummer20UL18.root");
+    auto file = TFile::Open("root://redirector.t2.ucsd.edu:1095//store/user/jguiang/testfiles/TTToHadronic_TuneCP5_13TeV_RunIISummer20UL18NanoAODv9.root");
     TTree* tree = (TTree*) file->Get("Events");
 
     //======================================================================
