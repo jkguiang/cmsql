@@ -17,7 +17,7 @@ Use Julia Arrow to .root -> uncompressed arrow:
 using UnROOT, DataFrames, Arrow
 const lt = LazyTree("/tmp/0A0C246F-D01B-6F4D-85E6-3A75C27C5197.root", "Events");
 df = DataFrame(lt; copycols=false)
-Arrow.write("./nanoAOD_nocomp.feather", df)
+Arrow.write("./nanoAOD_nocomp.feather", @view df[1:5*10^5, :])
 ```
 
 # How to benchmark and developer this package:
