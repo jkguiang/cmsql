@@ -12,7 +12,7 @@ Later, launch julia with `--project=.` will give you access to all the neede pac
 Start with a nanoAOD, you need to make an apache arrow file **without** compression.
 
 ## Converting nanoAOD to uncompressed Arrow
-Use Julia Arrow to re-write again, removes compression:
+Use Julia Arrow to .root -> uncompressed arrow:
 ```julia
 using UnROOT, DataFrames, Arrow
 const lt = LazyTree("/tmp/0A0C246F-D01B-6F4D-85E6-3A75C27C5197.root", "Events");
