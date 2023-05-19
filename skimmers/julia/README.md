@@ -1,12 +1,8 @@
-# How to prepare input file
-Start with a nanoAOD, you need to make an apache arrow file **without** compression.
-
-## Converting nanoAOD to uncompressed Arrow
-
+# Set up
 ```bash
+>pwd
 ./cmsql_main/skimmers/julia
 ```
-
 ```julia
 > julia --project=.
 # press ] to enter Pkg mode
@@ -20,7 +16,21 @@ Precompiling project...
 │      CondaPkg Found dependencies: /home/akako/.julia/packages/PythonCall/1f5yE/CondaPkg.toml
 │      CondaPkg Resolving changes
 └
+```
 
+# How to prepare input file
+Start with a nanoAOD, you need to make an apache arrow file **without** compression.
+
+```julia
+using UnROOT, DataFrames, Arrow
+const lt = LazyTree("/tmp/0A0C246F-D01B-6F4D-85E6-3A75C27C5197.root", "Events");
+df = DataFrame(lt; copycols=false)
+Arrow.write("./nanoAOD_nocomp.feather", df)
+```
+
+# Skim from feather and back to `.root`
+
+```julia
 julia> using CMSql
 
 julia> skim_feather("./nanoAOD_nocomp.feather"; output="./output.feather")
