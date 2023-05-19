@@ -1,6 +1,11 @@
+name = "CMSql"
+uuid = "eb8f4926-4e9b-498b-91c8-c899330fbaad"
+authors = ["Jerry Ling <proton@jling.dev>"]
+version = "0.1.0"
+
 [deps]
 Arrow = "69666777-d1a9-59fb-9406-91d4454c9d45"
+CondaPkg = "992eb4ea-22a4-4c89-a5bb-47a3300528ab"
 DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
 LorentzVectorHEP = "f612022c-142a-473f-8cfd-a09cf3793c6c"
-Revise = "295af30f-e4ad-537b-8983-00126c2a3abe"
-UnROOT = "3cd96dde-e98d-4713-81e9-a4a1b0235ce9"
+PythonCall = "6099a3de-0909-46bc-b1f4-468b9a2dfc0d"
