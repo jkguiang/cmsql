@@ -1,9 +1,13 @@
-using Arrow, DataFrames, LorentzVectorHEP
+"""
+    skim_feather(path::String; output = joinpath(@__DIR__, "output.feather"))
+"""
+function skim_feather(path; output = joinpath(@__DIR__, "output.feather"))
+    _dfa = Arrow.Table(path);
+    dfa = DataFrame(_dfa; copycols=false);
+    main(dfa; output)
+end
 
-const _dfa = Arrow.Table("./nanoAOD_nocomp.feather");
-const dfa = DataFrame(_dfa; copycols=false);
-
-function main(dfa)
+function main(dfa; output)
     (; nElectron, Electron_pt, Electron_phi, Electron_cutBased,
     Electron_eta, Electron_deltaEtaSC, Electron_dxy, Electron_dz,
     nMuon, Muon_tightId, Muon_pfRelIso04_all, Muon_pt, Muon_eta,
@@ -15,7 +19,7 @@ function main(dfa)
     FatJet_mass, FatJet_msoftdrop, nJet, Jet_pt, Jet_eta, Jet_phi)
 
     df_out = @view dfa[mask, :]
-    Arrow.write(joinpath(@__DIR__, "output.feather"), df_out)
+    Arrow.write(output, df_out)
 end
 
 function _kernal(idxs, nElectrons, Electron_pts, Electron_phis, Electron_cutBaseds, 
